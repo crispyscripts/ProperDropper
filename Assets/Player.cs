@@ -9,8 +9,14 @@ public class Player : MonoBehaviour
     public Sprite OpenFist;
     public AudioClip CaughtBall;
     public AudioSource audioSource;
+    private static ParticleSystem sizzle;
 
     bool mouseDown;
+
+    private void Start()
+    {
+        sizzle = GetComponent<ParticleSystem>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -44,6 +50,7 @@ public class Player : MonoBehaviour
             audioSource.Play();
             Destroy(collision.collider.gameObject);
             Score.UpdateScore();
+            sizzle.Play();
         }
     }
 
