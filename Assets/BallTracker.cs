@@ -57,6 +57,8 @@ public class BallTracker : MonoBehaviour
 
             ballClone = Instantiate(ball, startPosition, Quaternion.identity);
 
+            ballClone.GetComponent<SpriteRenderer>().sortingOrder = 2;
+
             balls.Add(ballClone);
         }
     }
